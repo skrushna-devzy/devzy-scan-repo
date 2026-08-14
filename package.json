@@ -1,0 +1,14 @@
+{
+  "name": "devzy-scan-repo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Intentional vulnerable fixture for Devzy scan E2E testing",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "lodash": "4.17.15"
+  }
+}

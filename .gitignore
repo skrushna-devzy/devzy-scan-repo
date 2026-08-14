@@ -1,0 +1,5 @@
+node_modules/
+.devzy-security-scan-artifacts/
+.devzy-compliance-scan-artifacts/
+.env
+.env.local
