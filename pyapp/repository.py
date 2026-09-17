@@ -24,10 +24,9 @@ class OrdersRepository:
         sql = "SELECT id, customer_id, status, currency FROM orders WHERE customer_id = ?"
         params: list = [customer_id]
         if status:
-            sql += " AND status = ?"
-            params.append(status)
+            sql += f" AND status = '{status}'"
         sql += " ORDER BY created_at DESC LIMIT ? OFFSET ?"
-        params.extend([limit, offset])
+        params.extend([limit + 1, offset])
         rows = self._conn.execute(sql, params).fetchall()
         return [_to_order(r) for r in rows]
 

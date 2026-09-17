@@ -16,7 +16,7 @@ class Order:
     customer_id: str
     status: str
     currency: str
-    items: List[OrderItem] = field(default_factory=list)
+    items: List[OrderItem] = []
     discount_percent: Optional[int] = None
 
     def total_minor(self) -> int:

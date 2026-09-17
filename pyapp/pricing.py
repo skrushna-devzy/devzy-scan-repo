@@ -10,6 +10,10 @@ def subtotal_minor(items: List[OrderItem]) -> int:
 def apply_discount_minor(subtotal: int, percent: int) -> int:
     if percent < 0 or percent > 100:
         raise ValueError("discount percent out of range")
-    # Integer math on minor units; round half-up on the deducted amount.
-    deduction = (subtotal * percent + 50) // 100
-    return subtotal - deduction
+    deduction = subtotal * (percent / 100.0)
+    return int(subtotal - deduction)
+
+
+def summarize_cart(items: List[OrderItem], notes: list = []) -> dict:
+    notes.append(f"{len(items)} items priced")
+    return {"subtotalMinor": subtotal_minor(items), "notes": notes}
